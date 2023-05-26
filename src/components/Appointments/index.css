@@ -1,1 +1,122 @@
-/* Write your CSS here */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.appointments-app-container {
+  background-image: linear-gradient(#fbc7d4, #9796f0);
+  height: 100vh;
+  background-size: cover;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .appointments-app-container {
+    padding: 70px;
+  }
+}
+.appointments-card {
+  background-color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-top: 40px;
+  border-radius: 20px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .appointments-card {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 30px;
+    padding-top: 40px;
+  }
+}
+.desk-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 20px;
+}
+.image {
+  width: 80%;
+}
+.main-heading {
+  font-size: 30px;
+  color: #171f46;
+  font-family: 'Roboto';
+}
+.input-title {
+  color: #b5b7c4;
+  font-size: 14px;
+  font-weight: 600;
+}
+.input-container {
+  width: 100%;
+}
+.input {
+  outline: none;
+  border: 1px solid #171f46;
+  min-width: 330px;
+  height: 42px;
+  padding: 10px;
+  border-radius: 5px;
+}
+/* @media (max-width: 576px) {
+  .input {
+    width: 100%;
+    min-width: 280px;
+  }
+} */
+.button-container {
+  margin-top: 20px;
+  border-bottom: 1px solid #b5b7c4;
+}
+.add-btn {
+  color: #ffffff;
+  background-color: #8b5cf6;
+  border: 0;
+  height: 30px;
+  width: 45px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  outline: none;
+}
+.appointments-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.bottom-heading {
+  font-size: 20px;
+  color: #171f46;
+  font-family: 'Roboto';
+}
+.submit-btn {
+  background-color: transparent;
+  border: 1px solid #9897f0;
+  color: #9897f0;
+  font-size: 13px;
+  font-weight: 600;
+  height: 30px;
+  width: 90px;
+  border-radius: 20px;
+  margin-top: 10px;
+  outline: none;
+}
+@media (max-width: 576px) {
+  .image {
+    display: none;
+  }
+}
