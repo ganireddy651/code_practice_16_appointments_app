@@ -76,7 +76,10 @@ class Appointments extends Component {
                 type="text"
                 className="input"
                 placeholder="TITLE"
+<<<<<<< HEAD
                 id="title"
+=======
+>>>>>>> 43f68a38481293c70abbc46c152c88d89b757407
                 onChange={this.onInputChange}
               />
               <br />
@@ -88,7 +91,10 @@ class Appointments extends Component {
                 value={date}
                 type="date"
                 className="input"
+<<<<<<< HEAD
                 id="date"
+=======
+>>>>>>> 43f68a38481293c70abbc46c152c88d89b757407
                 onChange={this.onDateChange}
               />
               <div>

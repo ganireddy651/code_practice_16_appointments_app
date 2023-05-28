@@ -3,8 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+<<<<<<< HEAD
   margin-right: 10px;
   margin-bottom: 10px;
+=======
+>>>>>>> 43f68a38481293c70abbc46c152c88d89b757407
   width: 250px;
   height: 80px;
   padding: 8px;

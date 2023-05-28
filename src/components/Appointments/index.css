@@ -118,6 +118,10 @@ body {
 }
 .appointments {
   display: flex;
+<<<<<<< HEAD
+=======
+  flex-direction: column;
+>>>>>>> 43f68a38481293c70abbc46c152c88d89b757407
 }
 @media (max-width: 576px) {
   .image {
