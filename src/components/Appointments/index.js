@@ -1,19 +1,96 @@
 import {Component} from 'react'
-import {format} from 'date-fns'
+import {v4 as uuidv4} from 'uuid'
+import AppointmentItem from '../AppointmentItem'
 import './index.css'
 
 class Appointments extends Component {
+  state = {appointment: [], title: '', date: '', staredBtn: false}
+
+  onInputChange = event => this.setState({title: event.target.value})
+
+  onDateChange = event => this.setState({date: event.target.value})
+
+  onClickAddNewAppointment = event => {
+    event.preventDefault()
+
+    const {title, date} = this.state
+
+    const createAnAppointment = {
+      id: uuidv4(),
+      title,
+      date,
+      isStarred: false,
+    }
+    this.setState(prevState => ({
+      appointment: [...prevState.appointment, createAnAppointment],
+      title: '',
+      date: '',
+    }))
+  }
+
+  isStaredAppointment = id => {
+    this.setState(prevState => ({
+      appointment: prevState.appointment.map(eachAppointment => {
+        if (id === eachAppointment.id) {
+          return {...eachAppointment, isStarred: !eachAppointment.isStarred}
+        }
+        return eachAppointment
+      }),
+    }))
+  }
+
+  onStarButtonClicked = () => {
+    const {appointment, staredBtn} = this.state
+    this.setState(prevState => ({
+      staredBtn: !prevState.staredBtn,
+    }))
+    const filterData = appointment.filter(each => each.isStarred === true)
+    if (staredBtn === true) {
+      this.setState(prevState => ({
+        appointment: prevState.appointment,
+      }))
+    } else {
+      this.setState({appointment: filterData})
+    }
+  }
+
   render() {
+    const {appointment, title, date, staredBtn} = this.state
+    const buttonStyle = staredBtn ? 'activestart' : 'submit-btn'
+
     return (
       <div className="appointments-app-container">
         <div className="appointments-card">
           <h1 className="main-heading">Add Appointment</h1>
-          <form className="desk-top button-container">
+          <form
+            className="desk-top button-container"
+            onSubmit={this.onClickAddNewAppointment}
+          >
             <div className="input-container">
-              <p className="input-title">TITLE</p>
-              <input type="text" className="input" placeholder="TITLE" />
-              <p className="input-title">DATE</p>
-              <input type="date" className="input" />
+              <label htmlFor="title" className="input-title">
+                TITLE
+              </label>
+              <br />
+              <input
+                value={title}
+                type="text"
+                className="input"
+                placeholder="TITLE"
+                id="title"
+                onChange={this.onInputChange}
+              />
+              <br />
+              <label htmlFor="date" className="input-title">
+                DATE
+              </label>
+              <br />
+              <input
+                value={date}
+                type="date"
+                className="input"
+                id="date"
+                onChange={this.onDateChange}
+              />
               <div>
                 <button type="submit" className="add-btn">
                   Add
@@ -30,9 +107,24 @@ class Appointments extends Component {
           </form>
           <div className="appointments-container">
             <h1 className="bottom-heading">Appointments</h1>
-            <button type="button" className="submit-btn">
+            <button
+              type="button"
+              className={buttonStyle}
+              onClick={this.onStarButtonClicked}
+            >
               Starred
             </button>
+          </div>
+          <div className="appointments">
+            <ul>
+              {appointment.map(each => (
+                <AppointmentItem
+                  appointment={each}
+                  key={each.id}
+                  isStaredAppointment={this.isStaredAppointment}
+                />
+              ))}
+            </ul>
           </div>
         </div>
       </div>

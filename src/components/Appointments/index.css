@@ -6,7 +6,7 @@ body {
 }
 .appointments-app-container {
   background-image: linear-gradient(#fbc7d4, #9796f0);
-  height: 100vh;
+  min-height: 100vh;
   background-size: cover;
   padding: 20px;
   display: flex;
@@ -49,7 +49,8 @@ body {
   margin-bottom: 20px;
 }
 .image {
-  width: 80%;
+  width: 100%;
+  margin-bottom: 10px;
 }
 .main-heading {
   font-size: 30px;
@@ -72,12 +73,11 @@ body {
   padding: 10px;
   border-radius: 5px;
 }
-/* @media (max-width: 576px) {
+@media (max-width: 576px) {
   .input {
     width: 100%;
-    min-width: 280px;
   }
-} */
+}
 .button-container {
   margin-top: 20px;
   border-bottom: 1px solid #b5b7c4;
@@ -97,6 +97,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 .bottom-heading {
   font-size: 20px;
@@ -115,8 +116,25 @@ body {
   margin-top: 10px;
   outline: none;
 }
+.appointments {
+  display: flex;
+}
 @media (max-width: 576px) {
   .image {
     display: none;
+    margin-bottom: 0px;
   }
+}
+
+.activestart {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border: 1px solid #9897f0;
+  font-size: 13px;
+  font-weight: 600;
+  height: 30px;
+  width: 90px;
+  border-radius: 20px;
+  margin-top: 10px;
+  outline: none;
 }
